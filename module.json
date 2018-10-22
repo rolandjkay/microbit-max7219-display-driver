@@ -1,0 +1,16 @@
+{
+  "name": "max7219-display-driver",
+  "version": "0.0.0",
+  "description": "Display driver for MAX7219 controlled LED matrix displays",
+  "keywords": [
+    "max7219",
+    "LED",
+    "matrix"
+  ],
+  "author": "Dr Roland Kay",
+  "homepage": "https://github.com/rolandjkay/",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "microbit": "lancaster-university/microbit#v2.1.0"
+  }
+}
