@@ -1,4 +1,4 @@
-#include "Max7219Display.h"
+#include "microbit-max7219-display-driver/Max7219Display.h"
 #include <mbed.h>
 
 // MAX7219 Commands

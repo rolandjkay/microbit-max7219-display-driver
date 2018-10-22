@@ -37,7 +37,6 @@ public:
   void set_brightness(uint8_t brightness);
 
   void set_led(size_t x, size_t y, bool value);
-  void show();
   void write_bitmap(const uint8_t* bitmap,
                     size_t width, size_t height,
                     size_t stride,
@@ -49,6 +48,12 @@ public:
   void set_display(const uint8_t* image,
                    size_t image_stride,
                    size_t display_index);
+
+  /*
+   * Flush screen buffer to display.
+   */
+  void show();
+
 };
 
 #endif
