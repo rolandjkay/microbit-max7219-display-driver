@@ -1,13 +1,15 @@
 {
-  "name": "max7219-display-driver",
+  "name": "microbit-max7219-display-driver",
   "version": "0.0.0",
-  "description": "Display driver for MAX7219 controlled LED matrix displays",
+  "description": "BBC micro:bit Display driver for MAX7219 controlled LED matrix displays",
   "keywords": [
     "max7219",
     "LED",
-    "matrix"
+    "matrix",
+    "microbit",
   ],
   "author": "Dr Roland Kay",
+  "repo": "https://github.com/rolandjkay/microbit-max7219-display-driver",
   "homepage": "https://github.com/rolandjkay/",
   "license": "Apache-2.0",
   "dependencies": {
