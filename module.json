@@ -6,7 +6,7 @@
     "max7219",
     "LED",
     "matrix",
-    "microbit",
+    "microbit"
   ],
   "author": "Dr Roland Kay",
   "repo": "https://github.com/rolandjkay/microbit-max7219-display-driver",
