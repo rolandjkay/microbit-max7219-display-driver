@@ -2,7 +2,6 @@
 #include "../source/Max7219Display.h"
 #include "./bitmaps.h"
 
-#if 1
 static const size_t display_indices[] = {3,2,1,0,
                                          7,6,5,4};
 static Max7219Display display(display_indices, 4, 4);
@@ -46,4 +45,3 @@ int main()
   // sit in the idle task forever, in a power efficient sleep.
   release_fiber();
 }
-#endif
