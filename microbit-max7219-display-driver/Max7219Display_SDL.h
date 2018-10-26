@@ -1,23 +1,36 @@
-#ifndef _MAX7291_DISPLAY_H
-#define _MAX7291_DISPLAY_H
-#ifdef TARGET_LIKE_ARM    // Exclude when not building on ARM.
+#ifndef _MAX7291_DISPLAY_SDL_H
+#define _MAX7291_DISPLAY_SDL_H
+#ifdef TARGET_LIKE_OSX    // Include only when not building on ARM.
 
-#include <mbed.h>
-#include <MicroBitPin.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <SDL2/SDL.h>
 
-class Max7219Display {
+class Max7219Display
+{
+  struct Coordinate
+  {
+    Coordinate(uint8_t _x, uint8_t _y) : x(_x), y(_y) {}
+    uint8_t x, y;
+  };
+
   const size_t* display_indices;
   size_t display_width;
   size_t display_height;
   size_t num_displays;
-  SPI spi;
-  uint8_t* buffer;
-  DigitalOut cs;
+  Coordinate* display_mapping;
 
-  void set_register(uint8_t cmd, uint8_t data);
-  void flush();
-  void start_write();
-  void end_write();
+  size_t sdl_window_width;
+  size_t sdl_window_height;
+
+  SDL_Window* window;
+  SDL_Renderer* renderer;
+  SDL_Surface* screen;
+  SDL_Texture * texture;
+  uint8_t *pixels;
+
+  // RGB value used to draw the LEDs
+  uint8_t led_colour;
 
 public:
   /*

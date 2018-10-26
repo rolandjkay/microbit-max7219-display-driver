@@ -13,6 +13,14 @@
   "homepage": "https://github.com/rolandjkay/",
   "license": "Apache-2.0",
   "dependencies": {
-    "microbit": "lancaster-university/microbit#v2.1.0"
+  },
+  "targetDependencies": {
+    "microbit": {
+      "microbit": "lancaster-university/microbit#v2.1.0",
+      "microbit-max7219-display-driver": "rolandjkay/microbit-max7219-display-driver"
+    },
+    "osx": {
+      
+    }
   }
 }

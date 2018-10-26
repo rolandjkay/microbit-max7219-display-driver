@@ -1,10 +1,18 @@
-#include "MicroBit.h"
-#include "../source/Max7219Display.h"
+#ifdef TARGET_LIKE_ARM
+#  include "MicroBit.h"
+#  include "../source/Max7219Display.h"
+#else
+#  include "../microbit-max7219-display-driver/Max7219Display_SDL.h"
+#  include "../microbit-max7219-display-driver/microbit-dal-osx.h"
+
+void release_fiber() {};
+#endif
+
 #include "./bitmaps.h"
 
 static const size_t display_indices[] = {3,2,1,0,
                                          7,6,5,4};
-static Max7219Display display(display_indices, 4, 4);
+static Max7219Display display(display_indices, 4, 2);
 
 static void id_displays()
 {
@@ -23,6 +31,9 @@ int main()
 
   while (1)
   {
+    /*id_displays();
+    display.show();
+    wait(1.0); */
     id_displays();
     display.show();
     wait(1);
@@ -37,7 +48,7 @@ int main()
     display.write_bitmap(girl_16x16, 16, 16, 2, 0, 0);
     display.write_bitmap(boy_16x16, 16, 16, 2, 16, 0);
     display.show();
-    wait(1);
+    wait(1); 
   }
 
   // If main exits, there may still be other fibers running or registered event handlers etc.

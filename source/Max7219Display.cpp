@@ -1,3 +1,5 @@
+#ifdef TARGET_LIKE_ARM    // Exclude when not building on ARM.
+
 #include "microbit-max7219-display-driver/Max7219Display.h"
 #include <mbed.h>
 
@@ -184,3 +186,5 @@ void Max7219Display::set_display(const uint8_t* image,
     buffer[physical_display_index * 8 + row_index] = image[row_index * image_stride];
   }
 }
+
+#endif
