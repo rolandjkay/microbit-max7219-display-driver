@@ -1,6 +1,8 @@
 #ifndef _MAX7291_DISPLAY_H
 #define _MAX7291_DISPLAY_H
-#ifdef TARGET_LIKE_ARM    // Exclude when not building on ARM.
+#ifdef TARGET_LIKE_OSX    // Substitute SDL implementation on OS X.
+#  include "Max7219Display_SDL.h"
+#else
 
 #include <mbed.h>
 #include <MicroBitPin.h>

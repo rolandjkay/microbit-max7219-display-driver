@@ -1,6 +1,6 @@
 #ifdef TARGET_LIKE_ARM
 #  include "MicroBit.h"
-#  include "../source/Max7219Display.h"
+#  include "../microbit-max7219-display-driver/Max7219Display.h"
 #else
 #  include "../microbit-max7219-display-driver/Max7219Display_SDL.h"
 #  include "../microbit-max7219-display-driver/microbit-dal-osx.h"
@@ -48,7 +48,7 @@ int main()
     display.write_bitmap(girl_16x16, 16, 16, 2, 0, 0);
     display.write_bitmap(boy_16x16, 16, 16, 2, 16, 0);
     display.show();
-    wait(1); 
+    wait(1);
   }
 
   // If main exits, there may still be other fibers running or registered event handlers etc.
