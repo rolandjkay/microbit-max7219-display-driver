@@ -179,11 +179,9 @@ void Max7219Display::set_display(const uint8_t* image,
                                  size_t image_stride,
                                  size_t display_index)
 {
-  size_t physical_display_index = display_indices[display_index];
-
   for (int row_index = 0; row_index < 8; ++row_index)
   {
-    buffer[physical_display_index * 8 + row_index] = image[row_index * image_stride];
+    buffer[display_index * 8 + row_index] = image[row_index * image_stride];
   }
 }
 
