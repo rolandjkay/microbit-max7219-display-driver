@@ -31,9 +31,6 @@ int main()
 
   while (1)
   {
-    /*id_displays();
-    display.show();
-    wait(1.0); */
     id_displays();
     display.show();
     wait(1);
