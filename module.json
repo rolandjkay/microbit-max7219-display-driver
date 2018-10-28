@@ -16,11 +16,10 @@
   },
   "targetDependencies": {
     "microbit": {
-      "microbit": "lancaster-university/microbit#v2.1.0",
-      "microbit-max7219-display-driver": "rolandjkay/microbit-max7219-display-driver"
+      "microbit": "lancaster-university/microbit#v2.1.0"
     },
     "osx": {
-      
+
     }
   }
 }
