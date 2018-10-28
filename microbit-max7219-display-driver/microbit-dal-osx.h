@@ -35,5 +35,7 @@ struct MicroBit
   MicroBitButtonAB buttonAB;
 };
 
+static inline void release_fiber() {}
+
 #endif
 #endif
