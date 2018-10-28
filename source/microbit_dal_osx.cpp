@@ -1,6 +1,20 @@
 #ifdef TARGET_LIKE_OSX // Include only on OSX
 
+#include "microbit-max7219-display-driver/microbit-dal-osx.h"
 #include <SDL2/SDL.h>
+#include <stdio.h>
+
+static MicroBit ubit;
+
+bool MicroBitVirtualButton::isPressed()
+{
+  return _ubit.buttonA.isPressed() && _ubit.buttonB.isPressed();
+}
+
+void MicroBitDisplay::scroll(const char* str)
+{
+  printf("%s\n", str);
+}
 
 // Timer callback function which diverts event back to the main thread
 /* with the same code as before: */
@@ -38,6 +52,28 @@ void wait(float seconds)
     {
      case SDL_QUIT:
        exit(0);
+       break;
+
+     case SDL_KEYDOWN:
+       if (event.key.keysym.sym == SDLK_LEFT)
+       {
+         ubit.buttonA._is_pressed = true;
+       }
+       else if (event.key.keysym.sym == SDLK_RIGHT)
+       {
+         ubit.buttonB._is_pressed = true;
+       }
+       break;
+
+     case SDL_KEYUP:
+       if (event.key.keysym.sym == SDLK_LEFT)
+       {
+         ubit.buttonA._is_pressed = false;
+       }
+       else if (event.key.keysym.sym == SDLK_RIGHT)
+       {
+         ubit.buttonB._is_pressed = false;
+       }
        break;
 
      // Quit when the timer fires.
