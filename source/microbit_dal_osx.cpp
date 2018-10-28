@@ -4,11 +4,22 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 
-static MicroBit ubit;
+static bool _button_a_pressed = false;
+static bool _button_b_pressed = false;
 
-bool MicroBitVirtualButton::isPressed()
+bool MicroBitButtonAB::isPressed()
 {
-  return _ubit.buttonA.isPressed() && _ubit.buttonB.isPressed();
+  return _button_a_pressed && _button_b_pressed;
+}
+
+bool MicroBitButtonA::isPressed()
+{
+  return _button_a_pressed;
+}
+
+bool MicroBitButtonB::isPressed()
+{
+  return _button_b_pressed;
 }
 
 void MicroBitDisplay::scroll(const char* str)
@@ -57,22 +68,22 @@ void wait(float seconds)
      case SDL_KEYDOWN:
        if (event.key.keysym.sym == SDLK_LEFT)
        {
-         ubit.buttonA._is_pressed = true;
+         _button_a_pressed = true;
        }
        else if (event.key.keysym.sym == SDLK_RIGHT)
        {
-         ubit.buttonB._is_pressed = true;
+         _button_b_pressed = true;
        }
        break;
 
      case SDL_KEYUP:
        if (event.key.keysym.sym == SDLK_LEFT)
        {
-         ubit.buttonA._is_pressed = false;
+         _button_a_pressed = false;
        }
        else if (event.key.keysym.sym == SDLK_RIGHT)
        {
-         ubit.buttonB._is_pressed = false;
+         _button_b_pressed = false;
        }
        break;
 

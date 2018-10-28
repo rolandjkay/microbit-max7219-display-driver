@@ -10,32 +10,29 @@ struct MicroBitDisplay
   void clear() {}
 };
 
-struct MicroBitButton
+struct MicroBitButtonA
 {
-  bool _is_pressed;
-  bool isPressed() { return _is_pressed; }
+  bool isPressed();
 };
 
-struct MicroBit;
-
-struct MicroBitVirtualButton
+struct MicroBitButtonB
 {
-  MicroBit& _ubit;
-  MicroBitVirtualButton(MicroBit& ubit) :_ubit(ubit) {}
+  bool isPressed();
+};
 
+struct MicroBitButtonAB
+{
   bool isPressed();
 };
 
 struct MicroBit
 {
-  MicroBit() : buttonAB(*this){}
-
   void init() {}
 
   MicroBitDisplay display;
-  MicroBitButton buttonA;
-  MicroBitButton buttonB;
-  MicroBitVirtualButton buttonAB;
+  MicroBitButtonA buttonA;
+  MicroBitButtonB buttonB;
+  MicroBitButtonAB buttonAB;
 };
 
 #endif
